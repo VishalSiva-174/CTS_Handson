@@ -1,0 +1,24 @@
+Task 2: Verify Normalisation
+
+1NF (First Normal Form)
+
+The schema satisfies 1NF because each table has a primary key, and every column stores only atomic (single) values.
+Example violation: If the students table stored multiple phone numbers in one column such as '9876543210,9123456789', it would violate 1NF because the column would contain multiple values.
+
+2NF (Second Normal Form)
+
+The schema satisfies 2NF because every non-key attribute depends entirely on the primary key.
+In the enrollments table, student_id and course_id form a composite candidate key, and attributes such as enrollment_date and grade depend on the complete student-course enrollment, not on only one part of the candidate key.
+
+3NF (Third Normal Form)
+
+The schema satisfies 3NF because there are no transitive dependencies.
+Non-key attributes depend only on the primary key.
+For example, dept_name is stored only in the departments table.
+If dept_name were stored in the students table, it would depend on department_id instead of student_id, creating a transitive dependency and violating 3NF.
+
+3NF Analysis for Enrollments Table
+
+The enrollments table is in 3NF because enrollment_date and grade depend only on the enrollment record (primary key enrollment_id).
+No non-key attribute depends on another non-key attribute.
+Therefore, there are no transitive dependencies in the table.
